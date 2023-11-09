@@ -1,4 +1,6 @@
-﻿namespace ImageGeneratorAI
+﻿using ImageGeneratorAI.Views;
+
+namespace ImageGeneratorAI
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new DashboardView();
         }
     }
 }
