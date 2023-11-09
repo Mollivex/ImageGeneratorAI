@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+<ContentPage Title="ImageGeneratorView"
              x:Class="ImageGeneratorAI.Views.ImageGeneratorView"
-             Title="ImageGeneratorView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              BackgroundImageSource="background1.jpg">
     
     <Grid Margin="25,25,0,0" RowDefinitions=".2*,.6*,.2*">
@@ -18,14 +20,27 @@
                 Text="Time spent 30 seconds"
                 TextColor="#ACB1BB"/>
         </VerticalStackLayout>
-        <Border Grid.Row="1"
-                StrokeShape="RoundRectangle 30,30,30,30"
-                StrokeThickness="0"
-                Margin="0,0,20,0">
+        <Border 
+            x:Name="imageBorder"
+            IsVisible="False"
+            Grid.Row="1"
+            StrokeShape="RoundRectangle 30,30,30,30"
+            StrokeThickness="0"
+            Margin="0,0,20,0">
             <Image Aspect="AspectFill" 
                    Source="menu.jpg"/>
         </Border>
+        
+        <skia:SKLottieView
+            x:Name="lottie"
+            Grid.Row="1"
+            IsAnimationEnabled="True"
+            RepeatCount="-1"
+            Source="robot.json"/>
+        
         <Button
+            x:Name="btnFinish"
+            Clicked="btnFinish_Clicked"
             Grid.Row="2"
             BackgroundColor="#E8FF8E"
             CornerRadius="35"
@@ -33,6 +48,7 @@
             FontFamily="ExoBlack"
             HeightRequest="75"
             HorizontalOptions="Center"
+            Scale="0.1"
             Text="Finish"
             TextColor="#101216"
             VerticalOptions="Center"
