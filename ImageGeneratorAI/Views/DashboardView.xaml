@@ -7,7 +7,7 @@
     xmlns:process="clr-namespace:PanCardView.Processors;assembly=PanCardView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="DashboardView"
-    BackgroundColor="#101216">
+    BackgroundImageSource="background1.jpg">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <Grid Margin="25,25,0,10" RowDefinitions=".1*,.2*,.15*,.45*">
+    <Grid Margin="25,25,0,0" RowDefinitions=".1*,.2*,.15*,.45*,.1*">
         <Grid Margin="0,0,25,0" ColumnDefinitions="*,*">
             <VerticalStackLayout VerticalOptions="Center">
                 <Rectangle Margin="0,0,0,5"
@@ -106,7 +106,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <cards:CoverFlowView Grid.Row="3"
-                             Margin="0,0,25,35"
+                             Margin="0,0,25,0"
                              ItemsSource="{Binding GeneratedImages}"
                              PositionShiftValue="100">
             <x:Arguments>
@@ -145,7 +145,18 @@
                     </Border>
                 </DataTemplate>
             </cards:CoverFlowView.ItemTemplate>
-            
         </cards:CoverFlowView>
+
+        <Border Grid.Row="4"
+                Margin="0,10,20,0"
+                HorizontalOptions="End"
+                StrokeShape="RoundRectangle 50,0,0,50"
+                WidthRequest="200">
+            <Button BackgroundColor="#E8FF8E"
+                    FontFamily="ExoBlack"
+                    FontSize="16"
+                    Text="Create new Image"
+                    TextColor="#101216"/>
+        </Border>
     </Grid>
 </ContentPage>
