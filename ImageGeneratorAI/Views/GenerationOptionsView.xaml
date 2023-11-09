@@ -51,7 +51,8 @@
                 ItemsSource="{Binding Styles}"
                 SelectionMode="Single">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="10"                                         Orientation="Horizontal"/>
+                <LinearItemsLayout ItemSpacing="10"                                         
+                                   Orientation="Horizontal"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -94,13 +95,15 @@
         </Border>
 
         <Button Grid.Row="5"
+                Margin="0,20,0,0"
                 BackgroundColor="#98C0FE"
                 CornerRadius="25"
                 HorizontalOptions="Center"
                 Text="Generate"
+                FontSize="20"
                 FontFamily="ExoBlack"
                 TextColor="Black"
                 VerticalOptions="Center"
-                WidthRequest="150"/>
+                WidthRequest="200"/>
     </Grid>
 </ContentPage>

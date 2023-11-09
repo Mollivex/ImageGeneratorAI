@@ -1,4 +1,6 @@
 using ImageGeneratorAI.Models;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Microsoft.Extensions.Logging;
 
 namespace ImageGeneratorAI.Views;
 
@@ -12,18 +14,18 @@ public partial class GenerationOptionsView : ContentPage
 		FillOptions();
 		BindingContext = this;
 
-//		Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
-//		{
-//#if ANDROID 
+		Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
+		{
+#if ANDROID
 
-//			handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
+			handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
 
-//#elif IOS || MACCATALYST
+#elif IOS || MACCATALYST
 
-//#elif WINDOWS
+#elif WINDOWS
 
-//#endif
-//		});
+#endif
+		});
 	}
 	private void FillOptions()
 	{
@@ -31,7 +33,7 @@ public partial class GenerationOptionsView : ContentPage
 		{
 			"World",
 			"Winter",
-			"Snow",
+			"Animals",
 			"Forest",
 			"Trees",
 			"Mountains",
