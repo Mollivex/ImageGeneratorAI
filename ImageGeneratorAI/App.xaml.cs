@@ -8,7 +8,8 @@ namespace ImageGeneratorAI
         {
             InitializeComponent();
 
-            MainPage = new DashboardView();
+            //MainPage = new DashboardView();
+            MainPage = new GenerationOptionsView();
         }
     }
 }
