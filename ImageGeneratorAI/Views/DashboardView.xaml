@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ImageGeneratorAI.Views.DashboardView"
-             Title="DashboardView"
-             BackgroundColor="#101216">
+<ContentPage 
+    x:Class="ImageGeneratorAI.Views.DashboardView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+    xmlns:process="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="DashboardView"
+    BackgroundColor="#101216">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ListToStringConverter x:Key="ListToStringConverter" Separator=","/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid Margin="25,25,0,10" RowDefinitions=".1*,.2*,.15*,.45*">
         <Grid Margin="0,0,25,0" ColumnDefinitions="*,*">
             <VerticalStackLayout VerticalOptions="Center">
@@ -59,7 +70,8 @@
                 <DataTemplate>
                     <Grid ColumnDefinitions=".35*,.65*"
                           HeightRequest="60"
-                          WidthRequest="160">
+                          WidthRequest="160"
+                          Margin="0,0,20,0">
                         <RoundRectangle Grid.ColumnSpan="2"
                                         CornerRadius="45"
                                         Fill="#1F252A"/>
@@ -93,5 +105,47 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <cards:CoverFlowView Grid.Row="3"
+                             Margin="0,0,25,35"
+                             ItemsSource="{Binding GeneratedImages}"
+                             PositionShiftValue="100">
+            <x:Arguments>
+                <process:CoverFlowProcessor OpacityFactor="0.25" 
+                                            ScaleFactor="0.75"/>
+            </x:Arguments>
+
+            <cards:CoverFlowView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 25,25,25,25" 
+                            StrokeThickness="0">
+                        <Grid RowDefinitions=".7*,.3*">
+                            <Image Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                                   Source="{Binding ImagePath}"/>
+                            <Grid Grid.Row="1">
+                                <Rectangle
+                                    Fill="Black"
+                                    Opacity=".5"
+                                    StrokeThickness="0"/>
+                                <VerticalStackLayout Margin="10,0,0,0" 
+                                                     VerticalOptions="Center">
+                                    <Label FontFamily="ExoBlack"
+                                           FontSize="25"
+                                           Text="{Binding MainKeyword}"
+                                           TextColor="White"/>
+                                    <Label FontFamily="ExoMedium"
+                                           FontSize="15"
+                                           Text="{Binding Keywords, Converter={StaticResource ListToStringConverter}}"
+                                           TextColor="DarkGrey"/>
+                                </VerticalStackLayout>
+                                </Grid>
+                            </Grid>
+                    </Border>
+                </DataTemplate>
+            </cards:CoverFlowView.ItemTemplate>
+            
+        </cards:CoverFlowView>
     </Grid>
 </ContentPage>

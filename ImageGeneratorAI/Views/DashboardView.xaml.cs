@@ -23,21 +23,31 @@ public partial class DashboardView : ContentPage
 			{
 				Name = "Jack",
 				ProfileImage = "profile1.jpg",
-				NoPhotos = 25
+				NoPhotos = 5
 			},
-			                        
 			new Profile
             {
                 Name = "Henry",
                 ProfileImage = "profile2.jpg",
                 NoPhotos = 13
             },
-			                                   
 			new Profile
             {
                 Name = "Maddy",
                 ProfileImage = "profile3.jpg",
                 NoPhotos = 8
+            },
+			new Profile
+            {
+                Name = "John",
+                ProfileImage = "profile4.jpg",
+                NoPhotos = 19
+            },
+            new Profile
+            {
+                Name = "Kate",
+                ProfileImage = "profile5.jpg",
+                NoPhotos = 3
             },
         };
 
@@ -49,10 +59,9 @@ public partial class DashboardView : ContentPage
 				MainKeyword = "Castle",
 				Keywords = new List<string>
 				{
-					"Epic, lake, mountain, medieval, trees, grey sky"
+					"Epic, lake, mountain, medieval, trees, smog, dawn"
 				}
 			},
-                        
 			new GeneratedImage
             {
                 ImagePath = "dashboard2.jpg",
@@ -62,7 +71,6 @@ public partial class DashboardView : ContentPage
                     "Landscape, photorealistic, dawn, mountains, blue sky"
                 }
             },
-		                        
 			new GeneratedImage
             {
                 ImagePath = "dashboard3.jpg",
@@ -70,6 +78,33 @@ public partial class DashboardView : ContentPage
                 Keywords = new List<string>
                 {
                     "AI, rototic, human, light, metal, cartoon"
+                }
+            },
+            new GeneratedImage
+            {
+                ImagePath = "dashboard4.jpg",
+                MainKeyword = "Ocean",
+                Keywords = new List<string>
+                {
+                    "ocean, diving, fishes, rocks, water, nature"
+                }
+            },
+            new GeneratedImage
+            {
+                ImagePath = "dashboard5.jpg",
+                MainKeyword = "Forest",
+                Keywords = new List<string>
+                {
+                    "Trees, dawn, outdoors, landscape, travel, nature"
+                }
+            },
+            new GeneratedImage
+            {
+                ImagePath = "dashboard6.jpg",
+                MainKeyword = "City",
+                Keywords = new List<string>
+                {
+                    "City jungles, roads, skycrapers, Chicago, landscape, buildings"
                 }
             },
 
