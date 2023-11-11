@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-             
-<ContentPage Title="ImageGeneratorView"
-             x:Class="ImageGeneratorAI.Views.ImageGeneratorView"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
-             BackgroundImageSource="background1.jpg">
-    
+
+<ContentPage
+    x:Class="ImageGeneratorAI.Views.ImageGeneratorView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    Title="Image Generator"
+    BackgroundImageSource="background1.jpg">
+
     <Grid Margin="25,25,0,0" RowDefinitions=".2*,.6*,.2*">
         <VerticalStackLayout>
-            <Label 
+            <Label
                 FontFamily="ExoBlack"
                 FontSize="50"
                 Text="Picture generated"
-                TextColor="White"/>
+                TextColor="White" />
 
             <HorizontalStackLayout Margin="0,20,0,0">
                 <Label
                     FontSize="20"
                     Text="Time spent "
                     TextColor="#ACB1BB"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center" />
                 <Grid>
-                    <Border 
+                    <Border
                         x:Name="borderTime"
                         Grid.Row="1"
                         BackgroundColor="#E8FF8E"
@@ -30,61 +31,60 @@
                         Opacity="0"
                         Scale="1.1"
                         StrokeShape="RoundRectangle 5,5,5,5"
-                        StrokeThickness="0"/>
-                    <Label 
+                        StrokeThickness="0" />
+                    <Label
                         x:Name="lblTimer"
                         FontSize="20"
                         Text="0"
                         TextColor="#ACB1BB"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center" />
                 </Grid>
                 <Label
                     FontSize="20"
                     Text=" seconds"
                     TextColor="#ACB1BB"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
-        <Border 
+        <Border
             x:Name="imageBorder"
-            IsVisible="False"
             Grid.Row="1"
+            Margin="0,0,20,0"
+            IsVisible="False"
             StrokeShape="RoundRectangle 30,30,30,30"
-            StrokeThickness="0"
-            Margin="0,0,20,0">
-            <Image Aspect="AspectFill" Source="cartoon.jpg"/>
+            StrokeThickness="0">
+            <Image Aspect="AspectFill" Source="cartoon.jpg" />
         </Border>
-        <Border 
+        <Border
             x:Name="imageAnimation"
             Grid.Row="1"
             BackgroundColor="#E8FF8E"
             IsVisible="False"
             Opacity=".9"
             StrokeShape="RoundRectangle 30,30,30,30"
-            StrokeThickness="0">
-        </Border>
-        
+            StrokeThickness="0" />
+
         <skia:SKLottieView
             x:Name="lottie"
             Grid.Row="1"
             IsAnimationEnabled="True"
             RepeatCount="-1"
-            Source="robot.json"/>
-        
+            Source="robot.json" />
+
         <Button
             x:Name="btnFinish"
-            Clicked="btnFinish_Clicked"
             Grid.Row="2"
             BackgroundColor="#E8FF8E"
+            Clicked="btnFinish_Clicked"
             CornerRadius="35"
-            FontSize="25"
             FontFamily="ExoBlack"
+            FontSize="25"
             HeightRequest="75"
             HorizontalOptions="Center"
             Scale="0"
             Text="Finish"
             TextColor="#101216"
             VerticalOptions="Center"
-            WidthRequest="250"/>
+            WidthRequest="250" />
     </Grid>
 </ContentPage>

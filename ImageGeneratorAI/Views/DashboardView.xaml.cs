@@ -110,4 +110,9 @@ public partial class DashboardView : ContentPage
 
         };
 	}
+
+    private void btnCreateImage_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//GenerationOptionsView");
+    }
 }

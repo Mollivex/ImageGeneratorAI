@@ -65,6 +65,6 @@ public partial class ImageGeneratorView : ContentPage
 
     private void btnFinish_Clicked(object sender, EventArgs e)
     {
-		Shell.Current.GoToAsync(nameof(DashboardView));
+        Shell.Current.GoToAsync("//DashboardView");
     }
 }

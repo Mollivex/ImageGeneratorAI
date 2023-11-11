@@ -57,4 +57,9 @@ public partial class GenerationOptionsView : ContentPage
             new ArtStyle() {Name = "Story Book", ImageUrl = "storybook.jpg"}
         };
 	}
+
+    private void btnGenerate_Clicked(object sender, EventArgs e)
+    {
+		Shell.Current.GoToAsync(nameof(ImageGeneratorView));
+    }
 }
